@@ -1,0 +1,23 @@
+import React from "react";
+import { Flex, Heading, Text } from "@chakra-ui/core";
+import SearchBar from "./SearchBar";
+
+const Header = () => {
+  return (
+    <>
+      <Flex justify="center">
+        <Heading fontFamily="'Abril Fatface', Cursive" fontSize="35px">
+          Breweries
+        </Heading>
+      </Flex>
+      <Flex justify="center">
+        <Text>Search below to find a new brewer!</Text>
+      </Flex>
+      <Flex justify="center">
+        <SearchBar />
+      </Flex>
+    </>
+  );
+};
+
+export default Header;

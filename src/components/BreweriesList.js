@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Flex, Text } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 import { BreweryCard } from "./BreweryCard";
 
 const BreweriesList = () => {
@@ -23,15 +23,10 @@ const BreweriesList = () => {
 
   return (
     <>
-      <Flex justify="center">
-        <Text as="h2" fontsize="6xl" fontFamily="'Abril Fatface', Cursive">
-          Breweries
-        </Text>
-      </Flex>
       <Flex wrap="wrap" justify="center">
         {breweries &&
           breweries.map(brewery => (
-            <BreweryCard id={brewery.id} brewery={brewery} />
+            <BreweryCard key={brewery.id} brewery={brewery} />
           ))}
       </Flex>
     </>

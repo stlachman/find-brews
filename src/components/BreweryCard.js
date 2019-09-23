@@ -1,15 +1,23 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/core";
+import { Box, Text, Link } from "@chakra-ui/core";
 
 export const BreweryCard = ({ brewery }) => {
   return (
-    <Box bg="white" p={4} color="black" width={[1, 1 / 2, 1 / 4]}>
+    <Box rounded="lg" bg="white" p={4} color="black" width={[1, 1 / 2, 1 / 4]}>
       <Text as="h3" fontFamily="'Abril Fatface', Cursive">
         {brewery.name}
       </Text>
       <Text fontSize="lg" fontFamily="'Poppins', Sans-Serif">
         {brewery.city}, {brewery.state}
       </Text>
+      <Link
+        href={brewery.website_url}
+        isExternal
+        fontFamily="'Poppins', Sans-Serif"
+        color="black"
+      >
+        Visit Website
+      </Link>
     </Box>
   );
 };
