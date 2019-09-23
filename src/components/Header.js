@@ -13,9 +13,7 @@ const Header = () => {
       <Flex justify="center">
         <Text>Search below to find a new brewer!</Text>
       </Flex>
-      <Flex justify="center">
-        <SearchBar />
-      </Flex>
+      <SearchBar />
     </>
   );
 };
