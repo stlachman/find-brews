@@ -62,7 +62,7 @@ const SearchBar = () => {
   }
 
   return (
-    <Flex justify="center">
+    <Flex justify="center" mt={4}>
       <Flex position="relative">
         <Box w="370px" maxW="100%">
           <Input
