@@ -1,5 +1,4 @@
 import React from "react";
-import App from "../App";
 import { Flex, Heading, Text } from "@chakra-ui/core";
 import SearchBar from "./SearchBar";
 
@@ -12,7 +11,7 @@ const Header = () => {
         </Heading>
       </Flex>
       <Flex justify="center">
-        <Text>Search below to find a new brewer!</Text>
+        <Text>Search for brewers by name</Text>
       </Flex>
       <SearchBar />
     </>
