@@ -5,12 +5,12 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   return (
     <>
-      <Flex justify="center">
+      <Flex justify="center" mt="25px">
         <Heading fontFamily="'Abril Fatface', Cursive" fontSize="35px">
-          Breweries
+          Tap Search
         </Heading>
       </Flex>
-      <Flex justify="center">
+      <Flex justify="center" mt="20px">
         <Text>Search for brewers by name</Text>
       </Flex>
       <SearchBar />

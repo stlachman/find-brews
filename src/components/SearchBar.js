@@ -3,10 +3,10 @@ import {
   Input,
   Flex,
   Box,
-  Spinner,
   List,
   ListItem,
-  Text
+  Text,
+  Button
 } from "@chakra-ui/core";
 import useDebounce from "../hooks/useDebounce";
 
@@ -64,7 +64,7 @@ const SearchBar = () => {
   return (
     <Flex justify="center">
       <Flex position="relative">
-        <Box w="240px" maxW="100%">
+        <Box w="370px" maxW="100%">
           <Input
             onChange={e => setQuery(e.target.value)}
             value={query}
@@ -72,30 +72,20 @@ const SearchBar = () => {
             type="text"
             placeholder="Search Brewery"
           />
-          {isSearching && (
-            <Spinner
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="blue.500"
-              size="xl"
-            />
-          )}
+
           <Box position="absolute">
             <List bg="#eee">
               {results &&
                 results.map(brewer => (
-                  <ListItem
-                    key={brewer.id}
-                    padding="12px 10px"
-                    onClick={() => setSelectedBrewer(brewer.name)}
-                  >
-                    {brewer.name}
+                  <ListItem key={brewer.id} padding="12px 10px">
+                    <Button onClick={() => setSelectedBrewer(brewer.name)}>
+                      {brewer.name}
+                    </Button>
                   </ListItem>
                 ))}
             </List>
           </Box>
-          <Box>
+          <Box mt="20px" padding="10px 20px" bg="#eee" rounded="md">
             <Text>
               {currentBrewer ? currentBrewer.name : "No Brewer Selected"}
             </Text>
