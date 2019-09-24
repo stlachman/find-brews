@@ -1,4 +1,5 @@
 import React from "react";
+import App from "../App";
 import { Flex, Heading, Text } from "@chakra-ui/core";
 import SearchBar from "./SearchBar";
 

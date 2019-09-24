@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Input, Flex, Box, Spinner } from "@chakra-ui/core";
+import { Input, Flex, Box, Spinner, List, ListItem } from "@chakra-ui/core";
 import useDebounce from "../hooks/useDebounce";
 
 const SearchBar = () => {
@@ -56,10 +56,12 @@ const SearchBar = () => {
               size="xl"
             />
           )}
-          <Box>
+          <List>
             {results &&
-              results.map(brewer => <Box key={brewer.id}>{brewer.name}</Box>)}
-          </Box>
+              results.map(brewer => (
+                <ListItem key={brewer.id}>{brewer.name}</ListItem>
+              ))}
+          </List>
         </Box>
       </Flex>
     </Flex>

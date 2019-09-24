@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Flex } from "@chakra-ui/core";
+import { Flex, Heading, Button } from "@chakra-ui/core";
 import { BreweryCard } from "./BreweryCard";
 
 const BreweriesList = () => {

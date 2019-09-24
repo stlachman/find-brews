@@ -1,21 +1,16 @@
 import React from "react";
-import { Box, Text, Link } from "@chakra-ui/core";
+import { Box, Heading, Text, Link } from "@chakra-ui/core";
 
 export const BreweryCard = ({ brewery }) => {
   return (
     <Box rounded="lg" bg="white" p={4} color="black" width={[1, 1 / 2, 1 / 4]}>
-      <Text as="h3" fontFamily="'Abril Fatface', Cursive">
+      <Heading as="h3" size="md" fontFamily="'Abril Fatface', Cursive">
         {brewery.name}
-      </Text>
-      <Text fontSize="lg" fontFamily="'Poppins', Sans-Serif">
+      </Heading>
+      <Text fontSize="lg">
         {brewery.city}, {brewery.state}
       </Text>
-      <Link
-        href={brewery.website_url}
-        isExternal
-        fontFamily="'Poppins', Sans-Serif"
-        color="black"
-      >
+      <Link href={brewery.website_url} isExternal color="black">
         Visit Website
       </Link>
     </Box>

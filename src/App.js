@@ -1,15 +1,14 @@
 import React from "react";
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import Layout from "./components/Layout";
 import Header from "./components/Header";
 import BreweriesList from "./components/BreweriesList";
 
 function App() {
   return (
-    <ThemeProvider>
-      <CSSReset />
+    <Layout>
       <Header />
       <BreweriesList />
-    </ThemeProvider>
+    </Layout>
   );
 }
 
