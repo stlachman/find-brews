@@ -10,7 +10,11 @@ export const BreweryCard = ({ brewery }) => {
       p={4}
       m={2}
       color="#333"
-      width={[1, 1 / 2, 1 / 4]}
+      width={[
+        "100%", // base
+        "50%", // 480px upwards
+        "25%" // 768px upwards
+      ]}
     >
       <Heading as="h3" size="md" fontFamily="'Abril Fatface', Cursive">
         {brewery.name}
