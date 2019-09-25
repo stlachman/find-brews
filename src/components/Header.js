@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   return (
     <>
-      <Flex justify="center" mt="25px">
+      <Flex justify="center" pt="25px">
         <Heading fontFamily="'Abril Fatface', Cursive" fontSize="35px">
           Tap Search
         </Heading>

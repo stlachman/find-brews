@@ -27,7 +27,16 @@ const BreweriesList = () => {
 
   return (
     <>
-      <Flex wrap="wrap" justify="center" mt="100px">
+      <Flex
+        wrap="wrap"
+        align="center"
+        direction="column"
+        justify="center"
+        mt="100px"
+        maxW="370px"
+        w="100%"
+        margin="40px auto 0"
+      >
         <Options setCurrentState={setCurrentState} />
       </Flex>
       <Flex wrap="wrap" justify="center" mt="80px">

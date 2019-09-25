@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
-import {
-  Input,
-  Flex,
-  Box,
-  List,
-  ListItem,
-  Text,
-  Button
-} from "@chakra-ui/core";
+import { Input, Flex, Box, List, ListItem, Text } from "@chakra-ui/core";
+import styled from "@emotion/styled";
 import useDebounce from "../hooks/useDebounce";
+
+const SearchItem = styled(ListItem)`
+  transition: 0.225s all ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #999;
+  }
+`;
+
+const SearchInput = styled(Input)`
+  max-width: 370px;
+`;
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -65,7 +71,7 @@ const SearchBar = () => {
     <Flex justify="center" mt={4}>
       <Flex position="relative">
         <Box w="370px" maxW="100%">
-          <Input
+          <SearchInput
             onChange={e => setQuery(e.target.value)}
             value={query}
             mt="2"
@@ -73,15 +79,17 @@ const SearchBar = () => {
             placeholder="Search Brewery"
           />
 
-          <Box position="absolute">
+          <Box position="absolute" w="100%">
             <List bg="#eee">
               {results &&
                 results.map(brewer => (
-                  <ListItem key={brewer.id} padding="12px 10px">
-                    <Button onClick={() => setSelectedBrewer(brewer.name)}>
-                      {brewer.name}
-                    </Button>
-                  </ListItem>
+                  <SearchItem
+                    key={brewer.id}
+                    padding="12px 10px"
+                    onClick={() => setSelectedBrewer(brewer.name)}
+                  >
+                    {brewer.name}
+                  </SearchItem>
                 ))}
             </List>
           </Box>
