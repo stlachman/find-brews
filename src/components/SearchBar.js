@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input, Flex, Box, List, ListItem, Text } from "@chakra-ui/core";
 import styled from "@emotion/styled";
 import useDebounce from "../hooks/useDebounce";
+import BrewerDetails from "./BrewerDetails";
 
 const SearchItem = styled(ListItem)`
   transition: 0.225s all ease-in-out;
@@ -94,9 +95,7 @@ const SearchBar = () => {
             </List>
           </Box>
           <Box mt="20px" padding="10px 20px" bg="#eee" rounded="md">
-            <Text>
-              {currentBrewer ? currentBrewer.name : "No Brewer Selected"}
-            </Text>
+            <BrewerDetails currentBrewer={currentBrewer} />
           </Box>
         </Box>
       </Flex>
