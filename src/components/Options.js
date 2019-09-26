@@ -3,7 +3,12 @@ import { Box } from "@chakra-ui/core";
 import styled from "@emotion/styled";
 import { states, types } from "../data/states";
 
-const Options = ({ setCurrentState, setCurrentType }) => {
+const Options = ({
+  currentState,
+  setCurrentState,
+  currentType,
+  setCurrentType
+}) => {
   const Select = styled.select`
     display: block;
     font-size: 16px;
@@ -61,8 +66,11 @@ const Options = ({ setCurrentState, setCurrentType }) => {
           onChange={e => setCurrentState(e.target.value)}
           onBlur={e => setCurrentState(e.target.value)}
         >
-          <option key="234303404340904343909042" value="">
-            Select a State
+          <option
+            key="234303404340904343909042"
+            value={currentState ? currentState : ""}
+          >
+            {currentState ? currentState : "Select a State"}
           </option>
           {states.map(state => {
             return (
@@ -81,8 +89,11 @@ const Options = ({ setCurrentState, setCurrentType }) => {
           onChange={e => setCurrentType(e.target.value)}
           onBlur={e => setCurrentType(e.target.value)}
         >
-          <option key="234303404340904343909042" value="">
-            Select a Type
+          <option
+            key="2343993403114343902"
+            value={currentType ? currentType : ""}
+          >
+            {currentType ? currentType : "Select a Type"}
           </option>
           {types.map(type => {
             return (

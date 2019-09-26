@@ -5,7 +5,8 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
-  AlertDescription
+  AlertDescription,
+  Spinner
 } from "@chakra-ui/core";
 import { BreweryCard } from "./BreweryCard";
 import Options from "./Options";
@@ -14,18 +15,19 @@ const BreweriesList = () => {
   const [breweries, setBreweries] = useState([]);
   const [currentState, setCurrentState] = useState("");
   const [currentType, setCurrentType] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const getByFilter = (state = "California", type = "micro") => {
-    console.log("state", state);
-    console.log("type", type);
     axios
       .get(
         `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=35&by_type=${type}`
       )
       .then(res => {
         setBreweries(res.data);
+        setIsLoading(false);
       })
       .catch(err => {
+        setIsLoading(false);
         console.error(err);
       });
   };
@@ -40,19 +42,30 @@ const BreweriesList = () => {
         wrap="wrap"
         align="center"
         direction="row"
-        justify="center"
+        justify="space-evenly"
         mt="100px"
-        maxW="370px"
+        maxW="560px"
         w="100%"
         margin="40px auto 0"
       >
         <Options
           setCurrentState={setCurrentState}
+          currentType={currentType}
+          currentState={currentState}
           setCurrentType={setCurrentType}
         />
       </Flex>
+
       <Flex wrap="wrap" justify="center" mt="80px">
-        {breweries.length ? (
+        {isLoading ? (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        ) : breweries.length ? (
           breweries.map(brewery => (
             <BreweryCard key={brewery.id} brewery={brewery} />
           ))
