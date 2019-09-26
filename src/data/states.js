@@ -50,3 +50,14 @@ export const states = [
   "Wisconsin",
   "Wyoming"
 ];
+
+export const types = [
+  "micro",
+  "regional",
+  "brewpub",
+  "large",
+  "planning",
+  "bar",
+  "contract",
+  "proprietor"
+];

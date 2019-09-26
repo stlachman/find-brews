@@ -1,8 +1,9 @@
 import React from "react";
+import { Box } from "@chakra-ui/core";
 import styled from "@emotion/styled";
-import { states } from "../data/states";
+import { states, types } from "../data/states";
 
-const Options = ({ setCurrentState }) => {
+const Options = ({ setCurrentState, setCurrentType }) => {
   const Select = styled.select`
     display: block;
     font-size: 16px;
@@ -52,24 +53,46 @@ const Options = ({ setCurrentState }) => {
 
   return (
     <>
-      <label htmlFor="states">List of States</label>
-      <Select
-        name="states"
-        id="states"
-        onChange={e => setCurrentState(e.target.value)}
-        onBlur={e => setCurrentState(e.target.value)}
-      >
-        <option key="234303404340904343909042" value="">
-          Select a State
-        </option>
-        {states.map(state => {
-          return (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          );
-        })}
-      </Select>
+      <Box>
+        <label htmlFor="states">List of States</label>
+        <Select
+          name="states"
+          id="states"
+          onChange={e => setCurrentState(e.target.value)}
+          onBlur={e => setCurrentState(e.target.value)}
+        >
+          <option key="234303404340904343909042" value="">
+            Select a State
+          </option>
+          {states.map(state => {
+            return (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            );
+          })}
+        </Select>
+      </Box>
+      <Box>
+        <label htmlFor="types">List of types</label>
+        <Select
+          name="types"
+          id="types"
+          onChange={e => setCurrentType(e.target.value)}
+          onBlur={e => setCurrentType(e.target.value)}
+        >
+          <option key="234303404340904343909042" value="">
+            Select a Type
+          </option>
+          {types.map(type => {
+            return (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            );
+          })}
+        </Select>
+      </Box>
     </>
   );
 };

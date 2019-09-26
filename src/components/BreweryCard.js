@@ -22,6 +22,7 @@ export const BreweryCard = ({ brewery }) => {
       <Text fontSize="lg">
         {brewery.city}, {brewery.state}
       </Text>
+      <Text>Type: {brewery.brewery_type}</Text>
       <Link href={brewery.website_url} isExternal color="black">
         Visit Website
       </Link>
