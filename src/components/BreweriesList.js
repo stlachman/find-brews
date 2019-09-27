@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import {
   Flex,
   Alert,
@@ -18,17 +17,21 @@ const BreweriesList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const getByFilter = (state = "California", type = "micro") => {
-    axios
-      .get(
-        `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=35&by_type=${type}`
-      )
-      .then(res => {
-        setBreweries(res.data);
+    fetch(
+      `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=35&by_type=${type}`,
+      {
+        method: "GET"
+      }
+    )
+      .then(r => r.json())
+      .then(r => {
+        setBreweries(r);
         setIsLoading(false);
       })
       .catch(err => {
         setIsLoading(false);
         console.error(err);
+        return [];
       });
   };
 
