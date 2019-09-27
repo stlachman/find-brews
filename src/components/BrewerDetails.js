@@ -5,17 +5,20 @@ const BrewerDetails = ({ currentBrewer }) => {
   if (currentBrewer) {
     return (
       <>
-        <Text>
+        <Text fontFamily='"Poppins", Sans-Serif'>
           {currentBrewer.name}: {currentBrewer.brewery_type}
         </Text>
         <address>
-          <Text>{currentBrewer.street}</Text>
-          <Text>
+          <Text fontFamily='"Poppins", Sans-Serif'>{currentBrewer.street}</Text>
+          <Text fontFamily='"Poppins", Sans-Serif'>
             {currentBrewer.city}, {currentBrewer.state}
           </Text>
-          <Text>{currentBrewer.postal_code}</Text>
+          <Text fontFamily='"Poppins", Sans-Serif'>
+            {currentBrewer.postal_code}
+          </Text>
         </address>
         <Link
+          fontFamily='"Poppins", Sans-Serif'
           href={`https://www.google.com/maps/search/?api=1&query=${currentBrewer.name} ${currentBrewer.street} ${currentBrewer.city}${currentBrewer.state}`}
           isExternal
         >
@@ -26,7 +29,7 @@ const BrewerDetails = ({ currentBrewer }) => {
   }
   return (
     <>
-      <Text>No Brewer Selected</Text>
+      <Text fontFamily='"Poppins", Sans-Serif'>No Brewer Selected</Text>
     </>
   );
 };

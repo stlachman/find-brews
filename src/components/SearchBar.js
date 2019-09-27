@@ -75,6 +75,7 @@ const SearchBar = () => {
           <SearchInput
             onChange={e => setQuery(e.target.value)}
             value={query}
+            fontFamily='"Poppins", Sans-Serif'
             mt="2"
             type="text"
             placeholder="Search Brewery"

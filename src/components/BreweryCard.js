@@ -16,15 +16,22 @@ export const BreweryCard = ({ brewery }) => {
         "25%" // 768px upwards
       ]}
     >
-      <Heading as="h3" size="md" fontFamily="'Abril Fatface', Cursive">
+      <Heading as="h3" size="md" mb={2} fontFamily="'Abril Fatface', Cursive">
         {brewery.name}
       </Heading>
-      <Text fontSize="lg">
+      <Text fontFamily='"Poppins", Sans-Serif' fontSize="lg">
         {brewery.city}, {brewery.state}
       </Text>
-      <Text>Type: {brewery.brewery_type}</Text>
+      <Text fontFamily='"Poppins", Sans-Serif' mb={2}>
+        Type: {brewery.brewery_type}
+      </Text>
       {brewery.website_url && (
-        <Link href={brewery.website_url} isExternal color="black">
+        <Link
+          fontFamily='"Poppins", Sans-Serif'
+          href={brewery.website_url}
+          isExternal
+          color="black"
+        >
           Visit Website
         </Link>
       )}
