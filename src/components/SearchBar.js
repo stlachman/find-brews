@@ -78,7 +78,7 @@ const SearchBar = () => {
             fontFamily='"Poppins", Sans-Serif'
             mt="2"
             type="text"
-            placeholder="Search Brewery"
+            placeholder="Search Brewery Name"
           />
 
           <Box position="absolute" w="100%">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/core";
+import { Box, Text } from "@chakra-ui/core";
 import styled from "@emotion/styled";
 import { states, types } from "../data/states";
 
@@ -14,14 +14,14 @@ const Options = ({
     font-size: 16px;
     font-family: "Poppins", Sans-Serif;
     font-weight: 700;
-    color: #444;
+    color: #333;
     line-height: 1.3;
     padding: 0.6em 1.4em 0.5em 0.8em;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     margin: 0;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
     border-radius: 0.5em;
     -moz-appearance: none;
@@ -59,7 +59,14 @@ const Options = ({
   return (
     <>
       <Box>
-        <label htmlFor="states">List of States</label>
+        <Text
+          display="inline-block"
+          marginBottom="5px"
+          as="label"
+          htmlFor="states"
+        >
+          List of States
+        </Text>
         <Select
           name="states"
           id="states"
@@ -82,7 +89,14 @@ const Options = ({
         </Select>
       </Box>
       <Box>
-        <label htmlFor="types">List of types</label>
+        <Text
+          display="inline-block"
+          marginBottom="5px"
+          as="label"
+          htmlFor="types"
+        >
+          List of types
+        </Text>
         <Select
           name="types"
           id="types"

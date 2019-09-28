@@ -19,6 +19,7 @@ const BrewerDetails = ({ currentBrewer }) => {
         </address>
         <Link
           fontFamily='"Poppins", Sans-Serif'
+          textDecoration="underline"
           href={`https://www.google.com/maps/search/?api=1&query=${currentBrewer.name} ${currentBrewer.street} ${currentBrewer.city}${currentBrewer.state}`}
           isExternal
         >
