@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as ReactLink } from "react-router-dom";
 import { Box, Heading, Text, Link } from "@chakra-ui/core";
 
 export const BreweryCard = ({ brewery }) => {
@@ -17,7 +18,9 @@ export const BreweryCard = ({ brewery }) => {
       ]}
     >
       <Heading as="h3" size="md" mb={2} fontFamily="'Abril Fatface', Cursive">
-        {brewery.name}
+        <Link as={ReactLink} to={`/brewers/${brewery.id}`}>
+          {brewery.name}
+        </Link>
       </Heading>
       <Text fontFamily='"Poppins", Sans-Serif' fontSize="lg">
         {brewery.city}, {brewery.state}
