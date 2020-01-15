@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Spinner, Box, Heading, Text, Link } from "@chakra-ui/core";
+import { Flex, Spinner, Box, Heading, Text, Link, Icon } from "@chakra-ui/core";
 import { useLocation, Link as ReactLink } from "react-router-dom";
+import Map from "./Map";
 
 export default function() {
   const [brewery, setBrewery] = useState(null);
@@ -16,7 +17,6 @@ export default function() {
     })
       .then(r => r.json())
       .then(r => {
-        console.log(r);
         setBrewery(r);
         setIsLoading(false);
       })
@@ -28,12 +28,7 @@ export default function() {
 
   return (
     <>
-      <Flex ml="30px" mt="15px">
-        <Link as={ReactLink} to="/">
-          Go Back
-        </Link>
-      </Flex>
-      <Flex wrap="wrap" justify="center" mt="65px">
+      <Flex wrap="wrap" flexDir="column" align="center" justify="center">
         {isLoading ? (
           <Spinner
             thickness="4px"
@@ -43,44 +38,59 @@ export default function() {
             size="xl"
           />
         ) : (
-          <Box
-            rounded="lg"
-            boxShadow="lg"
-            bg="white"
-            p={4}
-            m={2}
-            color="#333"
-            width={[
-              "100%", // base
-              "50%", // 480px upwards
-              "50%" // 768px upwards
-            ]}
-          >
-            <Heading
-              as="h3"
-              size="md"
-              mb={2}
-              fontFamily="'Abril Fatface', Cursive"
+          <>
+            <Box>
+              <Map
+                name={brewery.name}
+                lat={brewery.latitude}
+                long={brewery.longitude}
+              />
+            </Box>
+            <Box
+              rounded="lg"
+              boxShadow="lg"
+              bg="white"
+              p={4}
+              m={2}
+              color="#333"
+              width={[
+                "100%", // base
+                "50%", // 480px upwards
+                "50%" // 768px upwards
+              ]}
             >
-              {brewery.name}
-            </Heading>
-            <Text fontFamily='"Poppins", Sans-Serif' fontSize="lg">
-              {brewery.city}, {brewery.state}
-            </Text>
-            <Text fontFamily='"Poppins", Sans-Serif' mb={2}>
-              Type: {brewery.brewery_type}
-            </Text>
-            {brewery.website_url && (
-              <Link
-                fontFamily='"Poppins", Sans-Serif'
-                href={brewery.website_url}
-                isExternal
-                color="black"
+              <Heading
+                as="h3"
+                size="md"
+                mb={2}
+                fontFamily="'Abril Fatface', Cursive"
               >
-                Visit Website
+                {brewery.name}
+              </Heading>
+              <Text fontFamily='"Poppins", Sans-Serif' fontSize="lg">
+                {brewery.city}, {brewery.state}
+              </Text>
+              <Text fontFamily='"Poppins", Sans-Serif' mb={2}>
+                Type: {brewery.brewery_type}
+              </Text>
+              {brewery.website_url && (
+                <Link
+                  fontFamily='"Poppins", Sans-Serif'
+                  href={brewery.website_url}
+                  isExternal
+                  color="black"
+                >
+                  Visit Website
+                </Link>
+              )}
+            </Box>
+            <Flex ml="30px" mt="15px">
+              <Link as={ReactLink} to="/">
+                <Icon name="arrow-back" />
+                Go Back
               </Link>
-            )}
-          </Box>
+            </Flex>
+          </>
         )}
       </Flex>
     </>
