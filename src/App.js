@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import BreweriesList from "./components/BreweriesList";
+import Brewer from "./components/Brewer";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <Layout>
         <Header />
         <Switch>
+          <Route path="/brewers/:id">
+            <Brewer />
+          </Route>
           <Route path="/">
             <BreweriesList />
           </Route>
