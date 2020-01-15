@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import BreweriesList from "./components/BreweriesList";
-import Brewer from "./components/Brewer";
+import Brewery from "./components/Brewery";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/brewers/:id">
-            <Brewer />
+            <Brewery />
           </Route>
           <Route path="/">
             <BreweriesList />
