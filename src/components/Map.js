@@ -18,7 +18,7 @@ export default function({ lat, long, name }) {
       longitude={Number(long)}
       width="100vw"
       height="50vh"
-      mapStyle="mapbox://styles/mapbox/dark-v9"
+      mapStyle="mapbox://styles/mapbox/streets-v11"
       onViewportChange={setViewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
     >
@@ -42,14 +42,14 @@ export default function({ lat, long, name }) {
           </Box>
         ) : null}
         <button>
-          <Box
-            as="span"
+          <span
             onClick={() => setToggle(t => !t)}
             aria-label="Beer Marker"
             role="img"
+            style={{ fontSize: "2em" }}
           >
             🍺
-          </Box>
+          </span>
         </button>
       </Marker>
     </MapGL>
