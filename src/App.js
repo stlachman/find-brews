@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Header from "./components/Header";
 import BreweriesList from "./components/BreweriesList";
 import Brewery from "./components/Brewery";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function App() {
   return (
