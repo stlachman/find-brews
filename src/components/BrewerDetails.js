@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as ReactLink } from "react-router-dom";
 import { Text, Link } from "@chakra-ui/core";
 
 const BrewerDetails = ({ currentBrewer }) => {
@@ -6,7 +7,10 @@ const BrewerDetails = ({ currentBrewer }) => {
     return (
       <>
         <Text fontFamily='"Poppins", Sans-Serif'>
-          {currentBrewer.name}: {currentBrewer.brewery_type}
+          <Link as={ReactLink} to={`/brewers/${currentBrewer.id}`}>
+            {currentBrewer.name}
+          </Link>
+          : {currentBrewer.brewery_type}
         </Text>
         <address>
           <Text fontFamily='"Poppins", Sans-Serif'>{currentBrewer.street}</Text>
