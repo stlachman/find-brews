@@ -81,7 +81,6 @@ function Autosuggest({ setSelectedBrewer }) {
   };
 
   const handleClick = i => {
-    console.log(i);
     setValue(suggestions[i].name);
     setSelectedBrewer(suggestions[i].name);
   };

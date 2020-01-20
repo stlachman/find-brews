@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import { customTheme } from "../theme";
 
 export default function Layout({ children }) {
-  console.log(customTheme);
   return (
     <ThemeProvider theme={customTheme}>
       <CSSReset />

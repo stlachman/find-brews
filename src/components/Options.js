@@ -73,12 +73,10 @@ const Options = ({
           onChange={e => setCurrentState(e.target.value)}
           onBlur={e => setCurrentState(e.target.value)}
         >
-          <option
-            key="234303404340904343909042"
-            value={currentState ? currentState : ""}
-          >
-            {currentState ? currentState : "Select a State"}
-          </option>
+          {currentState !== "" ? (
+            <option value={currentState}>{currentState}</option>
+          ) : null}
+          <option>All</option>
           {states.map(state => {
             return (
               <option key={state} value={state}>
@@ -103,12 +101,10 @@ const Options = ({
           onChange={e => setCurrentType(e.target.value)}
           onBlur={e => setCurrentType(e.target.value)}
         >
-          <option
-            key="2343993403114343902"
-            value={currentType ? currentType : ""}
-          >
-            {currentType ? currentType : "Select a Type"}
-          </option>
+          {currentType !== "" ? (
+            <option value={currentType}>{currentType}</option>
+          ) : null}
+          <option>All</option>
           {types.map(type => {
             return (
               <option key={type} value={type}>
