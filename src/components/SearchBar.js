@@ -24,7 +24,7 @@ const SearchBar = () => {
   return (
     <Flex justify="center" mt={4}>
       <Flex position="relative">
-        <Box w="370px" maxW="100%">
+        <Box w="270px" maxW="100%">
           <Autosuggest setSelectedBrewer={setSelectedBrewer} />
           <Box mt="20px" padding="10px 20px" bg="#eee" rounded="md">
             <BrewerDetails currentBrewer={currentBrewer} />
