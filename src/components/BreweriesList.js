@@ -16,13 +16,20 @@ const BreweriesList = () => {
   const [currentType, setCurrentType] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const getByFilter = (state = "California", type = "micro") => {
-    fetch(
-      `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=35&by_type=${type}`,
-      {
-        method: "GET"
-      }
-    )
+  const getByFilter = (state = "All", type = "All") => {
+    let url = "https://api.openbrewerydb.org/breweries?&per_page=35";
+    if (state === "All" && type === "All") {
+    }
+    if (state !== "All") {
+      url += `&by_state=${state}`;
+    }
+    if (type !== "All") {
+      url += `&by_type=${type}`;
+    }
+
+    fetch(url, {
+      method: "GET"
+    })
       .then(r => r.json())
       .then(r => {
         setBreweries(r);
