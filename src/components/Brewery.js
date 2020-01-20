@@ -59,23 +59,18 @@ export default function() {
                 "50%" // 768px upwards
               ]}
             >
-              <Heading
-                as="h3"
-                size="md"
-                mb={2}
-                fontFamily="'Abril Fatface', Cursive"
-              >
+              <Heading as="h3" size="md" mb={2} fontFamily={"heading"}>
                 {brewery.name}
               </Heading>
-              <Text fontFamily='"Poppins", Sans-Serif' fontSize="lg">
+              <Text fontFamily={"body"} fontSize="lg">
                 {brewery.city}, {brewery.state}
               </Text>
-              <Text fontFamily='"Poppins", Sans-Serif' mb={2}>
+              <Text fontFamily={"body"} mb={2}>
                 Type: {brewery.brewery_type}
               </Text>
               {brewery.website_url && (
                 <Link
-                  fontFamily='"Poppins", Sans-Serif'
+                  fontFamily={"body"}
                   href={brewery.website_url}
                   isExternal
                   color="black"

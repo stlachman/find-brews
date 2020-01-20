@@ -36,7 +36,7 @@ export default function({ lat, long, name }) {
             p={"1em 2em"}
             bg="white"
           >
-            <Text fontFamily='"Poppins", Sans-Serif' fontWeight="bold" as="h3">
+            <Text fontFamily={"body"} fontWeight="bold" as="h3">
               {name}
             </Text>
           </Box>
