@@ -80,6 +80,12 @@ function Autosuggest({ setSelectedBrewer }) {
     }
   };
 
+  const handleClick = i => {
+    console.log(i);
+    setValue(suggestions[i].name);
+    setSelectedBrewer(suggestions[i].name);
+  };
+
   return (
     <>
       <Input
@@ -100,8 +106,14 @@ function Autosuggest({ setSelectedBrewer }) {
                 css={css`
                   background-color: #e2e8f0;
                   padding: 0.5em 1em;
+
+                  &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                  }
                 `}
                 key={i}
+                onClick={() => handleClick(i)}
               >
                 {suggestion.name}
               </ListItem>
@@ -110,8 +122,14 @@ function Autosuggest({ setSelectedBrewer }) {
                 css={css`
                   padding: 0.5em 1em;
                   background-color: #fafafa;
+
+                  &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                  }
                 `}
                 key={i}
+                onClick={() => handleClick(i)}
               >
                 {suggestion.name}
               </ListItem>

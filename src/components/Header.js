@@ -9,7 +9,7 @@ const Header = () => {
       pb="40px"
     >
       <Flex justify="center" pt="25px">
-        <Heading fontFamily="'Abril Fatface', Cursive" fontSize="35px">
+        <Heading fontFamily={"heading"} fontSize="35px">
           Find Brews
         </Heading>
       </Flex>
