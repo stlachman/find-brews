@@ -18,8 +18,6 @@ const BreweriesList = () => {
 
   const getByFilter = (state = "All", type = "All") => {
     let url = "https://api.openbrewerydb.org/breweries?&per_page=35";
-    if (state === "All" && type === "All") {
-    }
     if (state !== "All") {
       url += `&by_state=${state}`;
     }
