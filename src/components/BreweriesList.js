@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/core";
 import { BreweryCard } from "./BreweryCard";
 import Options from "./Options";
+import { fetchBreweries } from "../api/fetchBreweries";
 
 const BreweriesList = () => {
   const [breweries, setBreweries] = useState([]);
@@ -17,18 +18,7 @@ const BreweriesList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const getByFilter = (state = "All", type = "All") => {
-    let url = "https://api.openbrewerydb.org/breweries?&per_page=35";
-    if (state !== "All") {
-      url += `&by_state=${state}`;
-    }
-    if (type !== "All") {
-      url += `&by_type=${type}`;
-    }
-
-    fetch(url, {
-      method: "GET"
-    })
-      .then(r => r.json())
+    fetchBreweries(state, type)
       .then(r => {
         setBreweries(r);
         setIsLoading(false);
