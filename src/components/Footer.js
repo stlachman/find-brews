@@ -11,7 +11,7 @@ const Footer = () => {
         flexWrap="wrap"
         as="footer"
         w="100%"
-        maxW="1280px"
+        maxW="980px"
         mx="auto"
         px="20px"
       >
