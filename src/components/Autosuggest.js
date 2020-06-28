@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import { Input, List, ListItem } from "@chakra-ui/core";
 import { css } from "@emotion/core";
@@ -14,7 +15,7 @@ function Autosuggest({ setSelectedBrewer }) {
   useEffect(() => {
     if (debouncedSearchTerm) {
       setIsSearching(true);
-      fetchQueries(debouncedSearchTerm).then(res => {
+      fetchQueries(debouncedSearchTerm).then((res) => {
         setIsSearching(false);
         setSuggestions(res);
       });
@@ -27,24 +28,24 @@ function Autosuggest({ setSelectedBrewer }) {
     return fetch(
       `https://api.openbrewerydb.org/breweries/autocomplete?query=${query}`,
       {
-        method: "GET"
+        method: "GET",
       }
     )
-      .then(r => r.json())
-      .then(r => r)
-      .catch(error => {
+      .then((r) => r.json())
+      .then((r) => r)
+      .catch((error) => {
         console.error(error);
         return [];
       });
   }
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     let cv = e.target.value;
     let length = cv.length;
     setValue(cv);
     if (cv.length > 0) {
       setSuggestions(
-        suggestions.filter(item => {
+        suggestions.filter((item) => {
           if (
             item.name.toLowerCase().slice(0, length) ===
             cv.toLowerCase().slice(0, length)
@@ -57,7 +58,7 @@ function Autosuggest({ setSelectedBrewer }) {
     }
   };
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     if (e.key === "ArrowUp" && suggestions.length > 0) {
       if (selectedIndex > -1) {
         setSelectedIndex(selectedIndex - 1);
@@ -80,7 +81,7 @@ function Autosuggest({ setSelectedBrewer }) {
     }
   };
 
-  const handleClick = i => {
+  const handleClick = (i) => {
     setValue(suggestions[i].name);
     setSelectedBrewer(suggestions[i].name);
   };
